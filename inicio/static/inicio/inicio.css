@@ -1,0 +1,37 @@
+.head {
+    background-color: #5499C7 ;
+}
+button{
+    background-color: #5499C7;
+    color:white;
+    border-color: #5499C7;
+    width: 10%;
+    height: 5%;
+    font-weight: 700;
+    border: 0;
+}
+button:hover{
+    background-color: #1F618D ;
+    color:black;
+    box-shadow: #154360 ;
+}
+.container{
+    background-image: url('https://github.com/adrigalvanf/port/blob/main/Ground-breaking.jpeg?raw=true');
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center;
+    background-color: #92ccda;
+    height: 100%;
+
+}
+.container button{
+    background-color: #3f8394;
+    margin-top: 10%;
+    width: 17%;
+    margin-right: -2.5%;
+}
+h3{
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

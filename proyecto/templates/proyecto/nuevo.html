@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Django App</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'proyecto/nuevo.css' %}">
+</head>
+<body>
+    <script>
+        const salirURL = "{% url 'usuario:logout' %}"
+        const eventoURL = "{% url 'proyecto:calendario' %}"
+        const inicioURL =  "{% url 'inicio:' %}"
+        function salir(){
+            window.location.href = salirURL; 
+        }
+        function eventos(){
+            window.location.href = eventoURL
+        }
+        function inicio(){
+            window.location.href = inicioURL 
+        }
+    </script>
+    <div id="menu">
+        <ul>
+            <li><button onclick="eventos()">Ver Eventos</button></li>
+            <li><button onclick="inicio()">Inicio</button></li>
+            <li> <button onclick="salir()">Salir</button></li>
+        </ul>
+    </div>
+    <div id="project">
+        <h1>Agregar Proyecto</h1>
+<form method="post" action="{% url 'proyecto:nuevo' %}">
+    {% csrf_token %}
+    <ul>
+        <li>Titulo:<input type="text" name="titulo"></li>
+        <li>Fecha de Inicio:<input type="date" name="inicio"></li>
+        <li>Fecha final:<input type="date" name="final"></li>
+        <li>Descripcion: <input id="description" type="text" name="descripcion"></li>
+        <li><input id="submit" type="submit"></li>
+    </ul>
+</form>
+
+    </div>
+    <div id="miproyecto">
+        <h2>Proyectos Actuales</h2>
+        <hr></hr>
+        {% for proyecto in proyectos %}
+        <div >
+            <!-- Renderiza los detalles del evento -->
+            <h3>{{ proyecto.titulo }}</h3>
+            <p>{{ proyecto.inicio}}</p>
+            <p>{{ proyecto.final }}</p>
+            <!-- ... -->
+        </div>
+    {% empty %}
+        <p>No hay proyectos disponibles en este calendario.</p>
+    {% endfor %}
+    </div>
+    <div id="calendario">
+       
+    </div>
+ 
+
+
+</body>
+</html>

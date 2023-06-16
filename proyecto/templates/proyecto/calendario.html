@@ -1,0 +1,82 @@
+{% load scheduletags %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Calendario</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'proyecto/calendario.css' %}?v=3">
+  </head>
+  <body>
+    <script>
+      const principalURL = "{% url 'proyecto:' %}"
+      function principal(){
+          window.location.href = principalURL; 
+      }
+  </script>
+    <div id="menu">
+      <button onclick="principal()">Principal</button>
+    </div>
+    <div id="calendario">
+      <form method="GET" action="{% url 'proyecto:calendario' %}">
+        <label for="year">Año:</label>
+        <input
+          type="number"
+          name="year"
+          id="year"
+          value="{{ calendario.0.0.year }}"
+          required
+        />
+      
+        <label for="month">Mes:</label>
+        <input
+          type="number"
+          name="month"
+          id="month"
+          min="1"
+          max="12"
+          value="{{ calendario.0.0.month }}"
+          required
+        />
+      
+        <button type="submit">Mostrar Calendario</button>
+      </form>
+      {% for semana in calendario %}
+      {% if forloop.first %}
+          <h1>Calendario {{ semana.5|date:"F" }}</h1>
+      {% endif %}
+      {% endfor %}
+      <table>
+        <thead>
+          <tr>
+            <th>Lun</th>
+            <th>Mar</th>
+            <th>Mié</th>
+            <th>Jue</th>
+            <th>Vie</th>
+            <th>Sáb</th>
+            <th>Dom</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for semana in calendario %}
+          <tr>
+            {% for día in semana %}
+            <td>{{ día.day }}
+            {% for proyecto in proyectos %} 
+             {% if proyecto.inicio|date:"d" == día|date:"d" and proyecto.inicio|date:"m" == día|date:"m" %}
+              <p>Inicia:{{proyecto.titulo}}</p></td>
+             {% endif %} 
+             {% endfor %}
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div>
+        
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+{% load static %}
+<html>
+    <head>
+        <title>My Django App</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'inicio/inicio.css' %}">
+    </head>
+    <body>
+        <script>
+            const crearUsuarioURL = "{% url 'usuario:crear' %}";
+            const iniciarURL = "{% url 'usuario:iniciar' %}";
+            const proyectoURL = "{% url 'proyecto:' %}";
+            
+            function redireccionar() {
+                window.location.href = crearUsuarioURL;
+            }
+            function iniciar() {
+                window.location.href = iniciarURL;
+            }
+            function nuevo(){
+                window.location.href = proyectoURL;
+            }
+        </script>
+        <div class="head">
+            <h1>Titulo</h1>
+        <button onclick=redireccionar()>Crear usuario</button>
+        <button onclick="iniciar()">Iniciar Sesion</button>
+        </div> 
+        <div class="container">
+            <div>
+                <button onclick="nuevo()">Crear nuevo proyecto</button>
+            </div>
+            <div>
+                <td>
+                </td>
+            </div>
+        </div>
+    </body>
+
+</html>

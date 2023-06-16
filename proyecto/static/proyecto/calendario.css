@@ -1,0 +1,37 @@
+thead tr th{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: cornflowerblue;
+    color: white;
+    width: 3%
+}
+
+tbody tr td{
+    font-size: 150%;
+    position: inherit;
+    background-color: antiquewhite;
+}
+tbody tr td p{
+    font-size: 70%;
+}
+#menu{
+    margin-bottom: 2%; 
+}
+button{
+    background-color: #5499C7;
+    color:white;
+    border-color: #5499C7;
+    width: fit-content;
+    height: 15%;
+    font-weight: 700;
+    border: 0;
+    
+}
+button:hover{
+    background-color: #1F618D ;
+    color:black;
+    box-shadow: #154360 ;
+}
+
+#calendario{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

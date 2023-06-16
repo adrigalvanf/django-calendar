@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Django App</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'usuario/crear.css' %}">
+</head>
+<body>
+<h1>Crear nueva cuenta</h1>
+<form method="post" action="{% url 'usuario:crear' %}">
+    {% csrf_token %}
+    <ul>
+        <li><input type="text" name="username" placeholder="usuario"></li>
+        <li><input type="email" name="email" placeholder="email"></li>
+        <li><input type="password" name="password" placeholder="contraseña"></li>
+        <li><input type="submit"></li>
+    </ul>
+</form>
+<script>
+    const crearUsuarioURL = "{% url 'inicio:' %}";
+    function redireccionar() {
+        window.location.href = crearUsuarioURL;
+    }
+</script>
+
+<button onclick=redireccionar()>Volver</button>
+
+</body>
+</html>
